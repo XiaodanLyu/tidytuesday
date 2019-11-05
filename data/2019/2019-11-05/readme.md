@@ -28,9 +28,10 @@ commute_mode <- readr::read_csv("https://raw.githubusercontent.com/rfordatascien
 
 # Spoilers
 
-![](/data/2019/2019-11-05/pic1.png)
+![](pic1.png)
 
-![](/data/2019/2019-11-05/pic2.png)
+![](pic2.png)
+
 
 
 # Cleaning Script
