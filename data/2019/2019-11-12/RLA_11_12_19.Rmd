@@ -1,0 +1,60 @@
+---
+title: "RLA_11_12_19"
+author: "Stephanie Reinders"
+date: "11/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Get the data
+```{r}
+d <- read.csv('loc_cran_packages.csv')
+summary(d)
+```
+
+## Language
+```{r}
+d %>%
+  group_by(language) %>%
+  summarize(n=n()) %>%
+  arrange(desc(n)) %>%
+  ggplot(aes(x=language,y=n)) +
+    geom_point() +
+  coord_flip()
+```
+
+# Tex packages
+```{r}
+d %>% filter(language=="TeX")
+```
+
+```{r}
+d %>% 
+  group_by(language,pkg_name,version) %>%
+  summarize(n=n()) %>%
+  arrange(desc(n))
+```
+
+```{r}
+d %>% 
+  group_by(language) %>%
+  summarize(mean = mean(comment)) %>%
+  arrange(desc(mean))
+```
+
+```{r}
+unique(d$language)
+```
+
+```{r}
+d %>%
+  arrange(desc(code))
+```
+
+
+
+
